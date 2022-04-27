@@ -4,7 +4,6 @@ import GlobalStyles from './globalStyles'
 import { Navbar, Footer } from './components';
 import Home from './pages/HomePage/Home';
 import Services from './pages/Services/Services';
-import Products from './pages/Products/Products';
 import SignUp from './pages/SignUp/SignUp';
 import ScrollToTop from './components/ScrollToTop';
 import { useDispatch } from "react-redux";
@@ -14,6 +13,7 @@ import { loadContract } from './utils/load-contract';
 import { setWeb3Api as setWeb3 } from './actions/web3ApiAction'
 import { setAccount as setAccountAction } from './actions/accountActions'
 import Infomation from './pages/Infomation/Infomation';
+import Vaccine from './pages/Vaccine/Vaccine';
 
 function App() {
   
@@ -63,7 +63,7 @@ function App() {
         <Route path='/' exact component={Home} />
         <Route path='/infomation' component={Infomation} />
         <Route path='/services' component={Services} />
-        <Route path='/products' component={Products} />
+        <Route path='/vaccine' component={Vaccine} />
         <Route path='/sign-up' component={SignUp} />
       </Switch>
       <Footer />

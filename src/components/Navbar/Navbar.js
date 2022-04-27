@@ -15,6 +15,7 @@ import { IconContext } from 'react-icons/lib'
 import { Button } from '../../globalStyles';
 import { useDispatch, useSelector } from 'react-redux';
 import { setInfo } from '../../actions/infoAction';
+import { addVaccine } from '../../actions/vaccineActions';
 
 function Navbar() {
     const { account } = useSelector((state) => state.accountReducer)
@@ -33,35 +34,47 @@ function Navbar() {
             age: u[1],
             dateOfBirth: u[2]
         }))
+
+        const data = await contract.readVaccine({
+            from: account
+        });
+        data.forEach(el => {
+            dispatch(addVaccine({
+                nameVaccine: el['nameVaccine'],
+                date: el['date'],
+                vaccinationFacility: el['vaccinationFacility']
+            }))
+        });
     }
 
     const [click, setClick] = useState(false);
     const [homeClick, setHomeClick] = useState(false);
     const [infoClick, setInfoClick] = useState(false);
     const [servicesClick, setServicesClick] = useState(false);
-    const [productsClick, setProductsClick] = useState(false);
+    const [VaccineClick, setVaccineClick] = useState(false);
+
     const handleHomeClick = () => {
         setHomeClick(true);
         setInfoClick(false);
-        setProductsClick(false);
+        setVaccineClick(false);
         setServicesClick(false);
     }
     const handleInfoClick = () => {
         setHomeClick(false);
         setInfoClick(true);
-        setProductsClick(false);
+        setVaccineClick(false);
         setServicesClick(false);
     }
     const handleServicesClick = () => {
         setHomeClick(false);
         setInfoClick(false);
-        setProductsClick(false);
+        setVaccineClick(false);
         setServicesClick(true);
     }
-    const handleProductsClick = () => {
+    const handleVaccineClick = () => {
         setHomeClick(false);
         setInfoClick(false);
-        setProductsClick(true);
+        setVaccineClick(true);
         setServicesClick(false);
     }
     const handleClick = () => setClick(!click);
@@ -86,7 +99,7 @@ function Navbar() {
                                 </NavLinks>
                             </NavItem>
 
-                            <NavItem onClick={handleInfoClick} homeClick={infoClick}>
+                            <NavItem onClick={handleInfoClick} infoClick={infoClick}>
                                 <NavLinks to='/infomation' onClick={closeMobileMenu}>
                                     Infomation
                                 </NavLinks>
@@ -100,9 +113,9 @@ function Navbar() {
                             </NavItem>
 
 
-                            <NavItem onClick={handleProductsClick} productsClick={productsClick}>
-                                <NavLinks to='/Products' onClick={closeMobileMenu}>
-                                    Products
+                            <NavItem onClick={handleVaccineClick} VaccineClick={VaccineClick}>
+                                <NavLinks to='/vaccine' onClick={closeMobileMenu}>
+                                    Vaccine
                                 </NavLinks>
                             </NavItem>
                             (<NavItemBtn>

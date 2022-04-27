@@ -1,3 +1,6 @@
+h2 {
+    color: black;
+}
 .profile-wrapper {
     display: flex;
     align-items: center;

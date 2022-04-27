@@ -1,16 +1,17 @@
 export const homeObjOne = {
-    lightBg: false,
-    lightText: true,
-    lightTextDesc: true,
-    topLine: 'Exclusive Access',
-    headline: 'Unlimited Transactions with zero fees',
-    description:
-      'Get access to our exclusive diamond card that allows you to  send unlimited transactions without getting charged any fees',
-    buttonLabel: 'Get Started',
-    imgStart: '',
-    img: require('../../images/svg-1.svg'),
-    alt: 'Credit Card'
-  };
+  lightBg: true,
+  lightText: false,
+  lightTopLine: true,
+  lightTextDesc: false,
+  topLine: 'Sign up Today',
+  headline: 'Join today to receive an exclusive offer',
+  description:
+    'Get access to our exclusive diamond king package. Limited quantity available.',
+  buttonLabel: 'Sign Up',
+  imgStart: '',
+  img: require('../../images/svg-1.svg'),
+  alt: 'Credit Card'
+};
   
   export const homeObjTwo = {
     lightBg: false,
