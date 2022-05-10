@@ -29,7 +29,7 @@ function Profile({
     }
     const updateInfo = async () => {
         const { contract } = web3Api;
-        await contract.createUser(info.name, info.age, info.dateOfBirth, { from: account });
+        await contract.createUser(info.name, info.age, info.dateOfBirth, info.address, { from: account });
     }
 
     return (

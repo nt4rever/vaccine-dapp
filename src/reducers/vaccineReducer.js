@@ -6,9 +6,10 @@ export const vaccineReducer = (state = initialState, action) => {
             return [
                 ...state,
                 {
-                    nameVaccine: action.payload.nameVaccine,
+                    nameVaccine: action.payload.vaccine,
                     date: action.payload.date,
-                    vaccinationFacility: action.payload.vaccinationFacility
+                    vaccinationFacility: action.payload.vaccinationFacility,
+                    dose: action.payload.dose
                 }]
         default:
             return state;

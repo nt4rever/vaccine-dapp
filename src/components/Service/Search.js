@@ -11,6 +11,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import "./Search.css"
 import { useSelector } from "react-redux";
+import { vaccineData as vcData} from "../../pages/Vaccine/Data";
 
 function Search() {
     const [address, setAddress] = useState("");
@@ -28,7 +29,8 @@ function Search() {
                 vcData.push({
                     nameVaccine: el['nameVaccine'],
                     date: el['date'],
-                    vaccinationFacility: el['vaccinationFacility']
+                    vaccinationFacility: el['vaccinationFacility'],
+                    dose: el['dose']
                 });
             });
             setVaccineData(vcData);
@@ -66,6 +68,7 @@ function Search() {
                                     <TableRow>
                                         <TableCell>Vaccine name</TableCell>
                                         <TableCell align="right">Date</TableCell>
+                                        <TableCell align="right">Dose</TableCell>
                                         <TableCell align="right">Vaccination facility</TableCell>
                                     </TableRow>
                                 </TableHead>
@@ -76,8 +79,9 @@ function Search() {
                                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                         >
                                             <TableCell component="th" scope="row">
-                                                {row.nameVaccine}
+                                                {vcData.find(x=>x.value===row.nameVaccine).name}
                                             </TableCell>
+                                            <TableCell align="right">Dose {row.dose}</TableCell>
                                             <TableCell align="right">{row.date}</TableCell>
                                             <TableCell align="right">{row.vaccinationFacility}</TableCell>
                                         </TableRow>
