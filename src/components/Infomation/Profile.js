@@ -65,6 +65,7 @@ function Profile({
                                             shrink: true,
                                         }}
                                     />
+                                    <TextField id="age" label="Address" variant="outlined" name="address" onChange={handleChange} value={info.address ? (info.address) : ""} />
                                     <Chip label={account} variant="outlined" />
                                     <Button variant="outlined" size="large" onClick={updateInfo}>
                                         Update
