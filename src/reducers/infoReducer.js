@@ -11,7 +11,8 @@ export const infoReducer = (state = initialState, action) => {
                 ...state,
                 name: action.payload.name,
                 age: action.payload.age,
-                dateOfBirth: action.payload.dateOfBirth
+                dateOfBirth: action.payload.dateOfBirth,
+                address: action.payload.address
             }
         default:
             return state;

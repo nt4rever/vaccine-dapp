@@ -6,12 +6,14 @@ contract VaccineContract {
         string nameVaccine;
         string date;
         string vaccinationFacility;
+        string dose;
     }
 
     struct User {
         string name;
         string age;
         string dateOfBirth;
+        string addr;
         uint256 numOfVaccine;
         mapping(uint256 => Vaccine) vaccines;
     }
@@ -22,14 +24,16 @@ contract VaccineContract {
     function createUser(
         string memory name,
         string memory age,
-        string memory dateOfBirth
+        string memory dateOfBirth,
+        string memory addr
     ) external {
         address userAddress = msg.sender;
         User storage u = users[userAddress];
         u.name = name;
         u.age = age;
         u.dateOfBirth = dateOfBirth;
-        if (!checkUsers[userAddress]){
+        u.addr = addr;
+        if (!checkUsers[userAddress]) {
             u.numOfVaccine = 0;
             checkUsers[userAddress] = true;
         }
@@ -38,7 +42,8 @@ contract VaccineContract {
     function addVaccine(
         string memory nameVaccine,
         string memory date,
-        string memory vaccinationFacility
+        string memory vaccinationFacility,
+        string memory dose
     ) external {
         address userAddress = msg.sender;
         if (checkUsers[userAddress]) {
@@ -46,7 +51,8 @@ contract VaccineContract {
             u.vaccines[u.numOfVaccine] = Vaccine(
                 nameVaccine,
                 date,
-                vaccinationFacility
+                vaccinationFacility,
+                dose
             );
             u.numOfVaccine++;
         }
@@ -71,13 +77,14 @@ contract VaccineContract {
         returns (
             string memory,
             string memory,
+            string memory,
             string memory
         )
     {
         if (checkUsers[add]) {
             User storage u = users[add];
-            return (u.name, u.age, u.dateOfBirth);
+            return (u.name, u.age, u.dateOfBirth, u.addr);
         }
-        return ("null", "null", "null");
+        return ("null", "null", "null", "null");
     }
 }

@@ -14,11 +14,10 @@ function AddVaccine() {
     const web3Api = useSelector((state) => state.Web3Reducer);
     const { account } = useSelector((state) => state.accountReducer);
     const [newVaccine, setNewVaccine] = useState({
-        dose: 0,
+        dose: "1",
         vaccine: "",
-        nameVaccine: null,
-        date: null,
-        vaccinationFacility: null,
+        date: "2021-11-11",
+        vaccinationFacility: "",
     });
     const dispatch = useDispatch();
 
@@ -33,9 +32,10 @@ function AddVaccine() {
     const updateVaccine = async () => {
         const { contract } = web3Api;
         await contract.addVaccine(
-            newVaccine.nameVaccine,
+            newVaccine.vaccine,
             newVaccine.date,
             newVaccine.vaccinationFacility,
+            newVaccine.dose,
             { from: account }
         );
         dispatch(addVaccine(newVaccine));
@@ -63,9 +63,9 @@ function AddVaccine() {
                         name="dose"
                         onChange={handleChange}
                     >
-                        <MenuItem value={1}>Dose 1</MenuItem>
-                        <MenuItem value={2}>Dose 2</MenuItem>
-                        <MenuItem value={3}>Dose 3</MenuItem>
+                        <MenuItem value="1">Dose 1</MenuItem>
+                        <MenuItem value="2">Dose 2</MenuItem>
+                        <MenuItem value="3">Dose 3</MenuItem>
                     </Select>
                 </FormControl>
                 <FormControl fullWidth>
@@ -84,14 +84,6 @@ function AddVaccine() {
                         ))}
                     </Select>
                 </FormControl>
-                <TextField
-                    id="nameVaccine"
-                    label="Vaccine Name"
-                    variant="outlined"
-                    name="nameVaccine"
-                    onChange={handleChange}
-                    value={newVaccine.nameVaccine ? newVaccine.nameVaccine : ""}
-                />
                 <TextField
                     id="vaccinationFacility"
                     label="Vaccination Facility"

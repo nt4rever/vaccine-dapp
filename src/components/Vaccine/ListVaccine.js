@@ -15,10 +15,10 @@ import {
     PricingCardFeatures,
     PricingCardFeature
 } from '../../components/Pricing/Pricing.elements';
+import { vaccineData } from "../../pages/Vaccine/Data";
 
 function ListVaccine() {
     const listVaccine = useSelector((state) => state.vaccineReducer)
-
     return (
         <IconContext.Provider value={{ color: '#a9b3c1', size: 64 }}>
             <PricingSection>
@@ -32,7 +32,8 @@ function ListVaccine() {
                                         <PricingCardIcon>
                                             <GiCutDiamond />
                                         </PricingCardIcon>
-                                        <PricingCardPlan>{data.nameVaccine}</PricingCardPlan>
+                                        <PricingCardPlan>{vaccineData.find(x=>x.value===data.nameVaccine).name}</PricingCardPlan>
+                                        <PricingCardPlan>Dose {data.dose}</PricingCardPlan>
                                         <PricingCardLength>{data.date}</PricingCardLength>
                                         <PricingCardFeatures>
                                             <PricingCardFeature>{data.vaccinationFacility}</PricingCardFeature>

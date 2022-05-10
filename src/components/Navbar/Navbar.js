@@ -32,17 +32,20 @@ function Navbar() {
         dispatch(setInfo({
             name: u[0],
             age: u[1],
-            dateOfBirth: u[2]
+            dateOfBirth: u[2],
+            address: u[3]
         }))
 
         const data = await contract.readVaccine({
             from: account
         });
+
         data.forEach(el => {
             dispatch(addVaccine({
-                nameVaccine: el['nameVaccine'],
+                vaccine: el['nameVaccine'],
                 date: el['date'],
-                vaccinationFacility: el['vaccinationFacility']
+                vaccinationFacility: el['vaccinationFacility'],
+                dose: el['dose']
             }))
         });
     }
