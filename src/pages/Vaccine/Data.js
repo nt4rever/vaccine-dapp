@@ -55,3 +55,26 @@ export const homeObjOne = {
     img: require('../../images/svg-1.svg'),
     alt: 'Vault'
   };
+
+  export const vaccineData = [
+    {
+      value: 'astra',
+      name: 'AstraZeneca COVID-19 Vaccine',
+    },
+    {
+      value: 'verocell',
+      name: 'Sinopharm COVID-19 Vaccine - Vero Cell',
+    },
+    {
+      value: 'pfizer',
+      name: 'Pfizer–BioNTech COVID-19 Vaccine',
+    },
+    {
+      value: 'moderna',
+      name: 'Moderna COVID‑19 Vaccine',
+    },
+    {
+      value: 'sputnik',
+      name: 'Sputnik V COVID-19 Vaccine',
+    },
+  ]
