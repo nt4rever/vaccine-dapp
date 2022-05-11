@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 
+public/contracts/VaccineContract.json
 # testing
 /coverage
 
