@@ -67,8 +67,8 @@ function Search() {
                                 <TableHead>
                                     <TableRow>
                                         <TableCell>Vaccine name</TableCell>
-                                        <TableCell align="right">Date</TableCell>
                                         <TableCell align="right">Dose</TableCell>
+                                        <TableCell align="right">Date</TableCell>
                                         <TableCell align="right">Vaccination facility</TableCell>
                                     </TableRow>
                                 </TableHead>

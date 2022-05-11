@@ -29,6 +29,7 @@ function Navbar() {
         const u = await contract.getUser(account, {
             from: account
         });
+        
         dispatch(setInfo({
             name: u[0],
             age: u[1],

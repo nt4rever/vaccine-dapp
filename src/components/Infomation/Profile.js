@@ -33,7 +33,7 @@ function Profile({ lightBg, img, alt, imgStart, start }) {
     const handleDateChange = (event) => {
         let age = Math.floor(
             (new Date() - new Date(event.target.value).getTime()) / 3.15576e10
-        );
+        ).toString();
         dispatch(
             setInfoAction({
                 ...info,
