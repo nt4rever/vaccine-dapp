@@ -17,7 +17,8 @@ import { Link } from 'react-router-dom'
     img,
     alt,
     imgStart,
-    start
+    start,
+    link
 }) => {
     return (
         <>
@@ -29,7 +30,7 @@ import { Link } from 'react-router-dom'
                             <TopLine lightTopLine={lightTopLine}>{topLine}</TopLine>
                             <Heading lightText={lightText}>{headline}</Heading>
                             <Subtitle lightTextDesc={lightTextDesc}>{description}</Subtitle>
-                            <Link to='/sign-up'>
+                            <Link to={link}>
                             <Button big fontBig primary={primary}>
                                 {buttonLabel}
                             </Button>

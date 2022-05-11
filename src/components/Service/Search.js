@@ -44,18 +44,18 @@ function Search() {
         <>
             <div className="search-wrapper">
                 <Stack>
+                    <h2>Search vaccine data</h2>
                     <Stack
+                        direction="row"
                         component="form"
                         sx={{
-                            width: '50ch',
-                            padding: '20px'
+                            padding: '40px 0px'
                         }}
                         spacing={2}
                         noValidate
                         autoComplete="off"
                     >
-                        <h2>Search vaccine data</h2>
-                        <TextField id="sreach" label="Address" variant="outlined" name="address" onChange={handleChange} value={address ? (address) : ""} />
+                        <TextField fullWidth id="sreach" label="Address" variant="outlined" name="address" onChange={handleChange} value={address ? (address) : ""} />
                         <Button variant="outlined" size="large" onClick={getVaccineData}>
                             Search
                         </Button>

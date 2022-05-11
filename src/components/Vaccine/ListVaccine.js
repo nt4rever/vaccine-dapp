@@ -1,5 +1,5 @@
 import React from "react";
-import { GiCutDiamond } from 'react-icons/gi';
+import { FaSyringe } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -30,9 +30,9 @@ function ListVaccine() {
                                 <PricingCard>
                                     <PricingCardInfo>
                                         <PricingCardIcon>
-                                            <GiCutDiamond />
+                                            <FaSyringe />
                                         </PricingCardIcon>
-                                        <PricingCardPlan>{vaccineData.find(x=>x.value===data.nameVaccine).name}</PricingCardPlan>
+                                        <PricingCardPlan>{vaccineData.find(x => x.value === data.nameVaccine).name}</PricingCardPlan>
                                         <PricingCardPlan>Dose {data.dose}</PricingCardPlan>
                                         <PricingCardLength>{data.date}</PricingCardLength>
                                         <PricingCardFeatures>

@@ -4,15 +4,16 @@ export const homeObjOne = {
     lightTopLine: true,
     lightText: true,
     lightTextDesc: true,
-    topLine: 'Marketing Agency',
-    headline: 'Lead Generation Specialist for Online Businesses',
+    topLine: 'VCChain',
+    headline: 'A design of Blockchain – based platform for store vaccination data',
     description:
-      'We help business owners increase their revenue. Our team of unique specialist can help you achieve your business goals.',
+      'Building vaccine passports from blockchain data platform.',
     buttonLabel: 'Get Started',
     imgStart: '',
-    img: require('../../images/svg-1.svg'),
+    img: require('../../images/home.png'),
     alt: 'Credit Card',
-    start: ''
+    start: '',
+    link: '/infomation'
   };
   
   export const homeObjTwo = {
@@ -38,16 +39,17 @@ export const homeObjOne = {
     lightTopLine: false,
     lightText: false,
     lightTextDesc: false,
-    topLine: 'Sarah Jeni',
+    topLine: 'COVID-19 Vaccines',
     headline:
-      'Ultra helped me increase my revenue by over 3X in less than 3 months!',
+      'Stay Up to Date with Your COVID-19 Vaccines!',
     description:
-      "Their team is wonderful! I can't believe I didn't start working with them earlier.",
-    buttonLabel: 'View Case Study',
+      "COVID-19 vaccines available in the United States are effective at protecting people from getting seriously ill, being hospitalized, and even dying—especially people who are boosted. As with other diseases, you are protected best from COVID-19 when you stay up to date with recommended vaccines.",
+    buttonLabel: 'Update Injections',
     imgStart: 'start',
-    img: require('../../images/profile.jpg'),
+    img: require('../../images/vaccine.jpg'),
     alt: 'Vault',
-    start: 'true'
+    start: 'true',
+    link: '/vaccine'
   };
   
   export const homeObjFour = {
