@@ -1,36 +1,58 @@
-import React from 'react'
-import { InfoSec, InfoRow, InfoColumn, ImgWrapper, Img } from '../InfoSection/InfoSection.elements'
-import { Container } from '../../globalStyles'
-import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import Chip from '@mui/material/Chip';
-import './Profile.css'
-import { useDispatch, useSelector } from 'react-redux';
+import React from "react";
+import {
+    InfoSec,
+    InfoRow,
+    InfoColumn,
+    ImgWrapper,
+    Img,
+} from "../InfoSection/InfoSection.elements";
+import { Container } from "../../globalStyles";
+import Stack from "@mui/material/Stack";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Chip from "@mui/material/Chip";
+import "./Profile.css";
+import { useDispatch, useSelector } from "react-redux";
 import { setInfo as setInfoAction } from "../../actions/infoAction";
 
-function Profile({
-    lightBg,
-    img,
-    alt,
-    imgStart,
-    start
-}) {
-    const info = useSelector((state) => state.infoReducer)
-    const { account } = useSelector((state) => state.accountReducer)
+function Profile({ lightBg, img, alt, imgStart, start }) {
+    const info = useSelector((state) => state.infoReducer);
+    const { account } = useSelector((state) => state.accountReducer);
     const web3Api = useSelector((state) => state.Web3Reducer);
     const dispatch = useDispatch();
 
     const handleChange = (event) => {
-        dispatch(setInfoAction({
-            ...info,
-            [event.target.name]: event.target.value,
-        }))
-    }
+        dispatch(
+            setInfoAction({
+                ...info,
+                [event.target.name]: event.target.value,
+            })
+        );
+    };
+
+    const handleDateChange = (event) => {
+        let age = Math.floor(
+            (new Date() - new Date(event.target.value).getTime()) / 3.15576e10
+        );
+        dispatch(
+            setInfoAction({
+                ...info,
+                [event.target.name]: event.target.value,
+                age: age,
+            })
+        );
+    };
+
     const updateInfo = async () => {
         const { contract } = web3Api;
-        await contract.createUser(info.name, info.age, info.dateOfBirth, info.address, { from: account });
-    }
+        await contract.createUser(
+            info.name,
+            info.age,
+            info.dateOfBirth,
+            info.address,
+            { from: account }
+        );
+    };
 
     return (
         <>
@@ -42,32 +64,62 @@ function Profile({
                                 <Stack
                                     component="form"
                                     sx={{
-                                        width: '50ch',
-                                        padding: '20px'
+                                        width: "50ch",
+                                        padding: "20px",
                                     }}
                                     spacing={2}
                                     noValidate
                                     autoComplete="off"
                                 >
                                     <h2>Your Profile</h2>
-                                    
-                                    <TextField id="fullname" label="Full name" variant="outlined" name="name" onChange={handleChange} value={info.name ? (info.name) : ""} />
-                                    <TextField id="age" label="Age" variant="outlined" name="age" onChange={handleChange} value={info.age ? (info.age) : ""} />
+
+                                    <TextField
+                                        id="fullname"
+                                        label="Full name"
+                                        variant="outlined"
+                                        name="name"
+                                        onChange={handleChange}
+                                        value={info.name ? info.name : ""}
+                                    />
                                     <TextField
                                         id="dateOfBirth"
                                         label="Date of birth"
                                         type="date"
                                         name="dateOfBirth"
-                                        onChange={handleChange}
-                                        value={info.dateOfBirth ? (info.dateOfBirth) : "2017-05-24"}
-                                        sx={{ width: '45ch' }}
+                                        onChange={handleDateChange}
+                                        value={
+                                            info.dateOfBirth
+                                                ? info.dateOfBirth
+                                                : "2017-05-24"
+                                        }
+                                        sx={{ width: "45ch" }}
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
                                     />
-                                    <TextField id="age" label="Address" variant="outlined" name="address" onChange={handleChange} value={info.address ? (info.address) : ""} />
+                                    <TextField
+                                        disabled
+                                        id="age"
+                                        label="Age"
+                                        variant="outlined"
+                                        name="age"
+                                        onChange={handleChange}
+                                        value={info.age ? info.age : ""}
+                                    />
+                                    <TextField
+                                        id="age"
+                                        label="Address"
+                                        variant="outlined"
+                                        name="address"
+                                        onChange={handleChange}
+                                        value={info.address ? info.address : ""}
+                                    />
                                     <Chip label={account} variant="outlined" />
-                                    <Button variant="outlined" size="large" onClick={updateInfo}>
+                                    <Button
+                                        variant="outlined"
+                                        size="large"
+                                        onClick={updateInfo}
+                                    >
                                         Update
                                     </Button>
                                 </Stack>
@@ -81,9 +133,8 @@ function Profile({
                     </InfoRow>
                 </Container>
             </InfoSec>
-
         </>
-    )
+    );
 }
 
 export default Profile;

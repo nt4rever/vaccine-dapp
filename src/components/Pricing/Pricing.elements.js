@@ -6,7 +6,7 @@ export const PricingSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: #4b59f7;
+  background: #a2b8dd;
 `;
 
 export const PricingWrapper = styled.div`
@@ -78,6 +78,7 @@ export const PricingCardIcon = styled.div`
 `;
 
 export const PricingCardPlan = styled.h3`
+  text-align: center;
   margin-bottom: 5px;
   font-size: 24px;
 `;
