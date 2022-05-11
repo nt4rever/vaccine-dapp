@@ -26,7 +26,7 @@ function ListVaccine() {
                     <PricingHeading>Your vaccine infomation</PricingHeading>
                     <PricingContainer>
                         {
-                            listVaccine.map((data) => (
+                            listVaccine && listVaccine.map((data) => (
                                 <PricingCard>
                                     <PricingCardInfo>
                                         <PricingCardIcon>
